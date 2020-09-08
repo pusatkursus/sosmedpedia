@@ -24,7 +24,7 @@
 <div class="row">
 <div class="col-md-6">
 
-<form method="post" action="proses_sosmed" data-parsley-validate="" novalidate="">
+<form method="post" action="order.php" data-parsley-validate="" novalidate="">
 
 <div class="card card-default">
 <div class="card-header">
@@ -66,7 +66,7 @@
 	foreach($obj as$v) 
 	{
 	
-		echo "<option value='".$v['id']."' data-chained='".$v['id']."'>".$v['category']."</option>";
+		echo "<option value='".$v['id']."' data-chained='".$v['id']."'>".$v['name']."</option>";
 	}
 ?>
 </select>
@@ -247,6 +247,10 @@ Dilarang meminta pembatalan! Pembatalan hanya dapat diputuskan oleh Admin!
 
 <script>
 $(document).ready(function(){
+	$("#series").remoteChained({
+	    parents : "#mark",
+	    url : "/api/series"
+	});
 	$("#hasilnya").chained("#cat");
 });
 </script>
